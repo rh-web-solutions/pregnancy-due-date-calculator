@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('progress-bar').style.width = `${progressPercent}%`;
         document.getElementById('trimester').textContent = trimester;
         document.getElementById('days-remaining').textContent = daysRemaining > 0 ? daysRemaining : 0;
-        document.getElementById('fetal-age').textContent = `${currentWeek} weeks`;
+        document.getElementById('fetal-age').textContent = `${currentWeek} week ${currentDay} Days`;
         document.getElementById('current-running-week').textContent = `${actualcurrentWeek} week`;
         
         // Generate milestones
@@ -268,4 +268,5 @@ document.addEventListener('DOMContentLoaded', function() {
         resultContainer.style.display = 'none';
         lmpMethodBtn.click();
     }
+
 });
