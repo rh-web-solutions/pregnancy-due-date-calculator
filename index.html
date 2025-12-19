@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy Due Date Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-baby"></i> Pregnancy Due Date Calculator</h1>
+            <p class="subtitle">Calculate your estimated due date and track important pregnancy milestones</p>
+        </header>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-calculator"></i> Calculate Your Due Date</h2>
+            
+            <div class="method-toggle">
+                <button class="active" id="lmpMethodBtn">Last Menstrual Period</button>
+                <button id="conceptionMethodBtn">Conception Date</button>
+                <button id="ultrasoundMethodBtn">Ultrasound Date</button>
+            </div>
+            
+            <div id="lmpMethod" class="calculation-method">
+                <div class="form-group">
+                    <label for="lmp-date">First day of last menstrual period</label>
+                    <input type="date" id="lmp-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="cycle-length">Average cycle length (days)</label>
+                    <select id="cycle-length">
+                        <option value="21">21 days</option>
+                        <option value="22">22 days</option>
+                        <option value="23">23 days</option>
+                        <option value="24">24 days</option>
+                        <option value="25">25 days</option>
+                        <option value="26">26 days</option>
+                        <option value="27">27 days</option>
+                        <option value="28" selected>28 days</option>
+                        <option value="29">29 days</option>
+                        <option value="30">30 days</option>
+                        <option value="31">31 days</option>
+                        <option value="32">32 days</option>
+                        <option value="33">33 days</option>
+                        <option value="34">34 days</option>
+                        <option value="35">35 days</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="conceptionMethod" class="calculation-method hidden">
+                <div class="form-group">
+                    <label for="conception-date">Conception date (estimated)</label>
+                    <input type="date" id="conception-date">
+                </div>
+                <p class="tip-content" style="margin-top: -0.5rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                    <i class="fas fa-info-circle" style="color: var(--info);"></i> Conception typically occurs about 11-21 days after the first day of your last period.
+                </p>
+            </div>
+            
+            <div id="ultrasoundMethod" class="calculation-method hidden">
+                <div class="form-group">
+                    <label for="ultrasound-date">Ultrasound date</label>
+                    <input type="date" id="ultrasound-date">
+                </div>
+                <div class="form-group">
+                    <label for="ultrasound-weeks">Weeks at ultrasound</label>
+                    <input type="number" id="ultrasound-weeks" min="6" max="40" placeholder="e.g., 8">
+                </div>
+                <div class="form-group">
+                    <label for="ultrasound-days">Additional days</label>
+                    <input type="number" id="ultrasound-days" min="0" max="6" placeholder="e.g., 3">
+                </div>
+            </div>
+            
+            <button id="calculate-btn" class="btn"><i class="fas fa-calculator"></i> Calculate Due Date</button>
+            <button id="reset-btn" class="btn btn-secondary" style="margin-left: 1rem;"><i class="fas fa-redo"></i> Reset</button>
+        </div>
+
+        <div id="result-container" class="result-container">
+            <div class="result-card">
+                <h3 class="result-title"><i class="fas fa-calendar-check"></i> Estimated Due Date</h3>
+                <div class="result-value" id="due-date">May 15, 2023</div>
+                
+                <div class="pregnancy-progress">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar" style="width: 50%"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="current-week">Week 20</span>
+                        <span id="progress-percent">50% complete</span>
+                    </div>
+                </div>
+                
+                <div class="result-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Current trimester</div>
+                        <div class="detail-value" id="trimester">2nd</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Days remaining</div>
+                        <div class="detail-value" id="days-remaining">140</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Conception date</div>
+                        <div class="detail-value" id="conception-date-result">Aug 30, 2022</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Current fetal age</div>
+                        <div class="detail-value" id="fetal-age">18 weeks</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Current Week</div>
+                        <div class="detail-value" id="current-running-week">18 weeks</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="milestones">
+                <h3 class="card-title"><i class="fas fa-flag-checkered"></i> Pregnancy Milestones</h3>
+                
+                <div id="milestones-list">
+                    <!-- Milestones will be added here by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="tips-section">
+                <h3 class="tips-title"><i class="fas fa-lightbulb"></i> Tips for Your Current Stage</h3>
+                
+                <div id="pregnancy-tips">
+                    <!-- Tips will be added here by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>This calculator provides an estimate only and is not a substitute for professional medical advice.</p>
+            <p>Always consult with your healthcare provider about your pregnancy.</p>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
