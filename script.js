@@ -190,6 +190,8 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // Show results
         resultContainer.style.display = 'block';
+
+       resultContainer.scrollIntoView({ behavior: "smooth" });
     }
 
      function generateMilestones(dueDate, conceptionDate, today, lang) {
@@ -533,4 +535,5 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
 });
+
 
