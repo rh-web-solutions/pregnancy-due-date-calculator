@@ -1,11 +1,12 @@
 :root {
-    --primary: #6c63ff;
-    --secondary: #ff6584;
+    --primary: #0c8a8f;
+    --secondary: #044244;
     --dark: #2d3748;
     --light: #f7fafc;
     --success: #48bb78;
     --warning: #ed8936;
     --info: #4299e1;
+     --danger: #801604;
 }
 
 * {
@@ -13,6 +14,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.language-bar {
+    position: sticky;
+    top: 10px;
+    z-index: 1050;
+}
+
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -108,7 +116,8 @@ input:focus, select:focus {
 }
 
 .btn:hover {
-    background-color: #5a52e0;
+    background-color: #0da1a7;
+    color: white;
     transform: translateY(-2px);
 }
 
