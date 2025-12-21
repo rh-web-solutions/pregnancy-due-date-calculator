@@ -31,9 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.documentElement.lang = lang;
         localStorage.setItem("lang", lang);
 
-        if (globalCurrentWeek !== null && globalTrimester !== null) {
-            generateTips(globalCurrentWeek, globalTrimester);
-        }
+      
 
         let dueDate;
         if (lmpMethodBtn.classList.contains('active')) {
@@ -43,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dueDate.setDate(dueDate.getDate() + 280);
 
             conceptionDate = new Date(lmpDate);
-            conceptionDate.setDate(conceptionDate.getDate() + (cycleLength - 14) + 1);
+            conceptionDate.setDate(conceptionDate.getDate() + (cycleLength - 14));
         }
         else if (conceptionMethodBtn.classList.contains('active')) {
             conceptionDate = new Date(document.getElementById('conception-date').value);
@@ -62,9 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
             dueDate.setDate(dueDate.getDate() + 266);
         }
         let td = new Date();
-        
+        console.log("Conceptiondate "+conceptionDate);
         generateMilestones(dueDate, conceptionDate, td, lang);
-        generateTips(document.getElementById('fetal-age').value, document.getElementById('trimester').textContent);
+        generateTips(conceptionDate, document.getElementById('trimester').textContent);
     }
 
     /* ===============================
@@ -186,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
         generateMilestones(dueDate, conceptionDate, today, savedLang);
         
         // Generate tips
-        generateTips(currentWeek, trimester);
+        generateTips(conceptionDate, trimester);
         
         // Show results
         resultContainer.style.display = 'block';
@@ -279,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ===============================
        TIPS
     =============================== */
-    function generateTips(currentWeek, trimester) {
+    function generateTips(conceptionDate, trimester) {
         const container = document.getElementById('pregnancy-tips');
         container.innerHTML = '';
 
@@ -323,7 +321,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
         sonographyTests.forEach(tip => {
             const li = document.createElement('li');
-            li.textContent = tip;
+            let week = "";
+            if(tip == "Dating Scan")
+            {
+                week = " ( "+getWeekRange(conceptionDate, 6, savedLang).text.start+" - "+getWeekRange(conceptionDate, 8, savedLang).text.end+" )";
+            }
+            if(tip == "NT Scan")
+            {
+                week = " ( "+getWeekRange(conceptionDate, 11, savedLang).text.start+" - "+getWeekRange(conceptionDate, 13.6, savedLang).text.end+" )";
+            }
+            if(tip == "Fetal 2D Echo")
+            {
+                week = " ( "+getWeekRange(conceptionDate, 24, savedLang).text.start+" - "+getWeekRange(conceptionDate, 24, savedLang).text.end+" )";
+            }
+            if(tip == "Growth Scan")
+            {
+                week = " ( "+getWeekRange(conceptionDate, 28, savedLang).text.start+" - "+getWeekRange(conceptionDate, 32, savedLang).text.end+" )";
+            }
+            if(tip == "Obstetric Doppler")
+            {
+                week = " ( "+getWeekRange(conceptionDate, 34, savedLang).text.start+" - "+getWeekRange(conceptionDate, 36, savedLang).text.end+" )";
+            }
+            
+            li.textContent = tip + week ;
             sol.appendChild(li);
         });
 
@@ -516,19 +536,6 @@ document.addEventListener('DOMContentLoaded', function () {
     //     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     // }
 
-    function formatDate(date, lang) {
-        const locales = {
-            en: "en-US",
-            hi: "hi-IN",
-            mr: "mr-IN"
-        };
-
-        return date.toLocaleDateString(locales[lang] || "en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric"
-        });
-    }
 
     function weeksToMonths(weeks) {
     return Math.min(Math.ceil(weeks / 4), 9);
