@@ -1,4 +1,17 @@
-  /* ===============================
+ function formatDate(date, lang) {
+        const locales = {
+            en: "en-US",
+            hi: "hi-IN",
+            mr: "mr-IN"
+        };
+
+        return date.toLocaleDateString(locales[lang] || "en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
+    }
+ /* ===============================
        TRANSLATIONS
     =============================== */
     const translations = {
@@ -96,27 +109,27 @@
         },
         sonography_tests: {
             first: [
-                "Dating Scan (6-8th week)",
-                "NT Scan (11 - 13.6th week)",
+                "Dating Scan",
+                "NT Scan",
             ],
             second: [
                 "Anamoly Scan | TIFFA (Targeted Imaging for Fetal Anamolies) | Targeted Scan",
-                "Fetal 2D Echo (24th week)",
+                "Fetal 2D Echo",
             ],
             third: [
-                "Growth Scan (28 - 32th week)",
-                "Obstetric Doppler (34 - 36th week)",
+                "Growth Scan",
+                "Obstetric Doppler",
             ]
         },
         immunization_tests: {
             first: [
-                "Tetanus and diphtheria (2 doses - 1 month apart)",
+                "You should get it as per your doctor's advice.",
             ],
             second: [
-                "If you haven't had the Td (tetanus and diphtheria) vaccine in the first 3 months, you should get it as per your doctor's advice.",
+                "You should get it as per your doctor's advice.",
             ],
             third: [
-                "No immunization."
+                "You should get it as per your doctor's advice."
             ]
         },
         morning_diet: {
@@ -338,27 +351,27 @@
         },
         sonography_tests: {
             first: [
-                "Dating Scan (६-८ वा आठवडा)",
-                "NT Scan (११-१३.६ वा आठवडा)",
+                "Dating Scan",
+                "NT Scan",
             ],
             second: [
                 "Anamoly Scan | TIFFA (Targeted Imaging for Fetal Anamolies) | Targeted Scan",
-                "Fetal 2D Echo (२४ वा आठवडा)",
+                "Fetal 2D Echo",
             ],
             third: [
-                "Growth Scan (२८ - ३२ वा आठवडा)",
-                "Obstetric Doppler (३४ - ३६ वा आठवडा)",
+                "Growth Scan",
+                "Obstetric Doppler",
             ]
         },
         immunization_tests: {
             first: [
-                "Tetanus and diphtheria (२ डोस - १ महिन्याच्या अंतराने)",
+                "तुमच्या डॉक्टरांच्या सल्ल्यानुसार लसीकरण घ्यावे.",
             ],
             second: [
-                "पहिल्या ३ महिन्यामध्ये Td (Tetanus and diphtheria) चे लसीकरण केले नसल्यास डॉक्टरांच्या सल्ल्याने लसीकरण करावे. ",
+                "तुमच्या डॉक्टरांच्या सल्ल्यानुसार लसीकरण घ्यावे.",
             ],
             third: [
-                "लसीकरण नाही"
+                "तुमच्या डॉक्टरांच्या सल्ल्यानुसार लसीकरण घ्यावे."
             ]
         },
         morning_diet: {
@@ -583,27 +596,27 @@ donts_excercise: {
         },
         sonography_tests: {
             first: [
-                "Dating Scan (6-8 वां सप्ताह)",
-                "NT Scan (11 - 13.6 वां सप्ताह)",
+                "Dating Scan",
+                "NT Scan",
             ],
             second: [
                 "Anamoly Scan | TIFFA (Targeted Imaging for Fetal Anamolies) | Targeted Scan",
-                "Fetal 2D Echo (24 वां सप्ताह)",
+                "Fetal 2D Echo",
             ],
             third: [
-                "Growth Scan (28 - 32 वां सप्ताह)",
-                "Obstetric Doppler (34 - 36 वां सप्ताह)",
+                "Growth Scan",
+                "Obstetric Doppler",
             ]
         },
         immunization_tests: {
             first: [
-                "Tetanus and diphtheria (2 खुराक - 1 महीने के अंतराल पर)",
+                "आप अपने डॉक्टर की सलाह के अनुसार ही टीका ले।",
             ],
             second: [
-                "यदि आपने पहले 3 महीनों में टीडी (Tetanus and diphtheria) का टीका नहीं लगवाया है, तो आपको डॉक्टर की सलाह पर टीका लगवा लेना चाहिए।",
+                "आप अपने डॉक्टर की सलाह के अनुसार ही टीका ले।",
             ],
             third: [
-                "कोई टीका नहीं"
+                "आप अपने डॉक्टर की सलाह के अनुसार ही टीका ले।"
             ]
         },
         morning_diet: {
@@ -728,5 +741,28 @@ donts_excercise: {
             }
     };
 
+
+    function getWeekRange(conceptionDate, weekNumber, savedLang = "en") {
+        
+    if (!conceptionDate) return null;
+
+    const startOffset = (weekNumber - 1) * 7;
+
+    const start = new Date(conceptionDate);
+    start.setDate(start.getDate() + startOffset);
+
+    const end = new Date(start);
+    end.setDate(start.getDate() + 6);
+
+    return {
+        weekNumber,
+        startDate: start,
+        endDate: end,
+        text: {
+            start: ` ${formatDate(start, savedLang)}`,
+            end: ` ${formatDate(end, savedLang)}`
+        }
+    };
+}
 
     
