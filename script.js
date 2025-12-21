@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const actualcurrentWeek = currentDay > 0 ? currentWeek + 1 : currentWeek;
         
-        if(actualcurrentWeek >= 40)
+        if(actualcurrentWeek < 0 || actualcurrentWeek >= 40)
         {
            alert('Please enter valid details.');
                 return; 
@@ -533,3 +533,4 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
 });
+
