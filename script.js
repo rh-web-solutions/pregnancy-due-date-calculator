@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function () {
         bloodTests.forEach(tip => {
             const li = document.createElement('li');
             let bweekText = "";
-            let week;
+            let week = "";
             const Brange = bloodWeeks[tip];
             if (Brange) {
                 const bstart = getWeekRange(lmpDate, Brange[0], savedLang).text.start;
@@ -587,6 +587,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
 });
+
 
 
 
