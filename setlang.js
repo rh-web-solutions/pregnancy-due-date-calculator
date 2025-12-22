@@ -762,53 +762,29 @@ donts_excercise: {
     };
 
 
-// function getWeekRange(lmp, weekNumber, savedLang = "en") {
-        
-//     if (!lmp) return null;
+function getWeekRange(date, weekNumber, savedLang = "en") {
+    if (!date || weekNumber == null) return null;
 
-//     const startOffset = (weekNumber - 1) * 7;
-    
+    // Extract weeks and days
+    const fullWeeks = Math.floor(weekNumber);          // 1
+    const extraDays = Math.round((weekNumber - fullWeeks) * 10); // .3 → 3 days
 
-//     const start = new Date(lmp);
-//     start.setDate(start.getDate() + startOffset);
+    // Total offset in days
+    const startOffset = (fullWeeks - 1) * 7 + extraDays;
 
-//     const end = new Date(start);
-//     end.setDate(start.getDate() + 6);
+    const start = new Date(date);
+    start.setDate(start.getDate() + startOffset);
 
-//     return {
-//         weekNumber,
-//         startDate: start,
-//         endDate: end,
-//         text: {
-//             start: ` ${formatDate(start, savedLang)}`,
-//             end: ` ${formatDate(end, savedLang)}`
-//         }
-//     };
-// }
-
-function getWeekRange(lmp, weekNumber, savedLang = "en") {
-    if (!lmp || weekNumber == null) return null;
-
-    const week = Math.floor(weekNumber);     // 1 from 1.6
-    const extraDays = Math.round((weekNumber - week) * 10); // 6 from 1.6
-
-    // Start date = LMP
-    const start = new Date(lmp);
-
-    // End of the given week
-    const end = new Date(lmp);
-    end.setDate(end.getDate() + (week * 7 - 1));
-
-    // Add extra days
-    end.setDate(end.getDate() + extraDays);
+    const end = new Date(start);
+    end.setDate(start.getDate() + 6);
 
     return {
         weekNumber,
         startDate: start,
         endDate: end,
         text: {
-            start: formatDate(start, savedLang),
-            end: formatDate(end, savedLang)
+            start: ` ${formatDate(start, savedLang)}`,
+            end: ` ${formatDate(end, savedLang)}`
         }
     };
 }
@@ -830,3 +806,4 @@ showWelcome()
 showContainer()
 }
     
+
