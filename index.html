@@ -18,11 +18,10 @@
         <option value="hi">🌐 हिंदी</option>
     </select>
 </div>
-
-
-<div class="container" >
-        
-
+<div class="welcome text-center">
+    <h1>Hello. We’re sorry for the inconvenience. Your access to this app has been restricted, as it is no longer in production.</h1>
+</div>
+<div class="container">
         <header>
             <h1><i class="fas fa-baby"></i> <span data-lang="title">Pregnancy Due Date Calculator</span></h1>
             <p class="subtitle" data-lang="description">Calculate your estimated due date and track important pregnancy milestones</p>
@@ -31,10 +30,10 @@
         <div class="card">
             <h2 class="card-title"><i class="fas fa-calculator"></i> <span data-lang="heading">Calculate Your Due Date</span> </h2>
             
-            <div class="method-toggle flex-nowrap overflow-auto">
+            <div class="method-toggle flex-nowrap overflow-auto d-none">
                 <button class="active" id="lmpMethodBtn" data-lang="lmp">Last Menstrual Period</button>
-                <button id="conceptionMethodBtn" data-lang="conception">Conception Date</button>
-                <button id="ultrasoundMethodBtn" data-lang="ultrasound">Ultrasound Date</button>
+                <button class="d-none" id="conceptionMethodBtn" data-lang="conception">Conception Date</button>
+                <button class="d-none" id="ultrasoundMethodBtn" data-lang="ultrasound">Ultrasound Date</button>
             </div>
             
             <div id="lmpMethod" class="calculation-method">
@@ -94,7 +93,7 @@
                 <div class="col-sm-6">
                     <button id="calculate-btn" class="btn"><i class="fas fa-calculator"></i> <span data-lang="buttonCalculate"> Calculate Due Date</span></button>
                 </div>
-                <div class="col-sm-6 d-none">
+                <div class="col-sm-6 text-end">
                     <button id="reset-btn" class="btn btn-secondary" style="margin-left: 1rem;"><i class="fas fa-redo"></i> <span data-lang="reset">Reset</span></button>
                 </div>
             </div>
@@ -162,37 +161,38 @@
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
                                 <i class="fas fa-flag-checkered"></i>&nbsp;&nbsp;
             
-                                <span data-lang="Pregnancy_Milestones"></span>
-                            </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="milestones">
-                                <h3 class="card-title"><i class="fas fa-flag-checkered"></i> <span data-lang="Pregnancy_Milestones"></span></h3>
-                                
-                                <div id="milestones-list">
-                                    <!-- Milestones will be added here by JavaScript -->
-                                </div>
-                            </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingSix">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                <i class="fas fa-lightbulb"></i>&nbsp;&nbsp;
                                 <span data-lang="Current_Stage_tip"></span>
                             </button>
                             </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="tips-section">
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    
+                                    <div class="tips-section">
                                     <h3 class="tips-title"><i class="fas fa-lightbulb"></i> <span data-lang="Current_Stage_tip"></span></h3>
                                     
                                     <div id="pregnancy-tips">
                                         <!-- Tips will be added here by JavaScript -->
                                     </div>
                                 </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item d-none">
+                            <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                <i class="fas fa-lightbulb"></i>&nbsp;&nbsp;
+                                <span data-lang="Pregnancy_Milestones"></span>
+                            </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="milestones">
+                                        <h3 class="card-title"><i class="fas fa-flag-checkered"></i> <span data-lang="Pregnancy_Milestones"></span></h3>
+                                        
+                                        <div id="milestones-list">
+                                            <!-- Milestones will be added here by JavaScript -->
+                                        </div>
+                                    </div>
                             </div>
                             </div>
                         </div>
