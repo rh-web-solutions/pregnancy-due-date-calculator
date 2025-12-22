@@ -31,11 +31,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.documentElement.lang = lang;
         localStorage.setItem("lang", lang);
 
-      
-
+        var lmpDate = new Date(document.getElementById('lmp-date').value);
         let dueDate;
         if (lmpMethodBtn.classList.contains('active')) {
-            let lmpDate = new Date(document.getElementById('lmp-date').value);
+            
             let cycleLength = +document.getElementById('cycle-length').value || 28;
             dueDate = new Date(lmpDate);
             dueDate.setDate(dueDate.getDate() + 280);
@@ -60,9 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
             dueDate.setDate(dueDate.getDate() + 266);
         }
         let td = new Date();
-        console.log("Conceptiondate "+conceptionDate);
+        console.log("Conceptiondate "+lmpDate);
         generateMilestones(dueDate, conceptionDate, td, lang);
-        generateTips(conceptionDate, document.getElementById('trimester').textContent);
+        generateTips(lmpDate, document.getElementById('trimester').textContent);
     }
 
     /* ===============================
@@ -101,9 +100,9 @@ document.addEventListener('DOMContentLoaded', function () {
     =============================== */
     function calculateDueDate() {
         let dueDate, conceptionDate;
-
+        let lmpDate;
         if (lmpMethodBtn.classList.contains('active')) {
-            const lmpDate = new Date(document.getElementById('lmp-date').value);
+            lmpDate = new Date(document.getElementById('lmp-date').value);
             const cycleLength = +document.getElementById('cycle-length').value || 28;
 
             dueDate = new Date(lmpDate);
@@ -128,13 +127,13 @@ document.addEventListener('DOMContentLoaded', function () {
             dueDate = new Date(conceptionDate);
             dueDate.setDate(dueDate.getDate() + 266);
         }
-        displayResults(dueDate, conceptionDate);
+        displayResults(dueDate, conceptionDate,lmpDate);
     }
 
     /* ===============================
        DISPLAY RESULTS
     =============================== */
-   function displayResults(dueDate, conceptionDate) {
+   function displayResults(dueDate, conceptionDate, lmpDate) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         let savedLang = localStorage.getItem("lang") || "en";
@@ -144,13 +143,16 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // Calculate pregnancy progress
         const totalDays = 280;
-        const daysPassed = Math.floor((today - conceptionDate) / (1000 * 60 * 60 * 24)) + 14;
+        const daysPassed = Math.ceil((today - conceptionDate) / (1000 * 60 * 60 * 24)) + 14;
         const daysRemaining = totalDays - daysPassed;
         const progressPercent = Math.min(100, Math.max(0, Math.round((daysPassed / totalDays) * 100)));
         
         // Calculate weeks and days
         const currentWeek = Math.floor(daysPassed / 7);
         const currentDay = daysPassed % 7;
+
+        const currentFatalAgeWeek = Math.floor((daysPassed) / 7);
+        const currentFatalAgeDay = (daysPassed) % 7;
 
         const actualcurrentWeek = currentDay > 0 ? currentWeek + 1 : currentWeek;
         
@@ -161,8 +163,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         // Determine trimester
         let trimester;
-        if (daysPassed < 84) trimester = "1st";
-        else if (daysPassed < 168) trimester = "2nd";
+        if (daysPassed < 98) trimester = "1st";
+        else if (daysPassed < 196) trimester = "2nd";
         else trimester = "3rd";
     
         // Update DOM
@@ -175,8 +177,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('progress-bar').style.width = `${progressPercent}%`;
         document.getElementById('trimester').textContent = trimester;
         document.getElementById('days-remaining').textContent = daysRemaining > 0 ? daysRemaining : 0;
-        document.getElementById('fetal-age').textContent = `${currentWeek}`;
-        document.getElementById('fetal-age-days').textContent = `${currentDay}`;
+        document.getElementById('fetal-age').textContent = `${currentFatalAgeWeek}`;
+        document.getElementById('fetal-age-days').textContent = `${currentFatalAgeDay}`;
         document.getElementById('current-running-week').textContent = `${actualcurrentWeek}`;
         document.getElementById('current-month').textContent = `${weeksToMonths(actualcurrentWeek)}`;
         
@@ -184,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
         generateMilestones(dueDate, conceptionDate, today, savedLang);
         
         // Generate tips
-        generateTips(conceptionDate, trimester);
+        generateTips(lmpDate, trimester);
         
         // Show results
         resultContainer.style.display = 'block';
@@ -277,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ===============================
        TIPS
     =============================== */
-    function generateTips(conceptionDate, trimester) {
+    function generateTips(lmpDate, trimester) {
         const container = document.getElementById('pregnancy-tips');
         container.innerHTML = '';
 
@@ -307,9 +309,21 @@ document.addEventListener('DOMContentLoaded', function () {
        const ol = document.createElement('ol');
         ol.type = "1";
 
+        const bloodWeeks = {
+            "Double Marker": [11, 13.6],
+            "Quadraple Marker": [15, 22.6],
+        };
+
         bloodTests.forEach(tip => {
             const li = document.createElement('li');
-            li.innerHTML = `<i class="fa-solid fa-droplet" style="color: var(--danger); margin-right: 0.5rem;"></i> ${tip}`;
+            let bweekText = "";
+            const Brange = bloodWeeks[tip];
+            if (Brange) {
+                const bstart = getWeekRange(lmpDate, Brange[0], savedLang).text.start;
+                const bend = getWeekRange(lmpDate, Brange[1], savedLang).text.end;
+                bweekText = `\n ( ${bstart} - ${bend} )`;
+            }
+            li.innerHTML = `<i class="fa-solid fa-droplet" style="color: var(--danger); margin-right: 0.5rem;"></i> ${tip} ` + bweekText;
             ol.appendChild(li);
         });
 
@@ -319,33 +333,30 @@ document.addEventListener('DOMContentLoaded', function () {
         const sol = document.createElement('ul');
         sol.style.listStyleType = "circle";
 
-        sonographyTests.forEach(tip => {
+        const scanWeeks = {
+            "Dating Scan": [6, 8],
+            "NT Scan": [11, 13.6],
+            "Fetal 2D Echo": [24, 24],
+            "Growth Scan + Obstetric Doppler": [28, 32],
+            "2nd Growth Scan": [36, 37]
+        };
+
+       sonographyTests.forEach(tip => {
+
             const li = document.createElement('li');
-            let week = "";
-            if(tip == "Dating Scan")
-            {
-                week = " ( "+getWeekRange(conceptionDate, 6, savedLang).text.start+" - "+getWeekRange(conceptionDate, 8, savedLang).text.end+" )";
+            let weekText = "";
+
+            const range = scanWeeks[tip];
+            if (range) {
+                const start = getWeekRange(lmpDate, range[0], savedLang).text.start;
+                const end = getWeekRange(lmpDate, range[1], savedLang).text.end;
+                weekText = `\n ( ${start} - ${end} )`;
             }
-            if(tip == "NT Scan")
-            {
-                week = " ( "+getWeekRange(conceptionDate, 11, savedLang).text.start+" - "+getWeekRange(conceptionDate, 13.6, savedLang).text.end+" )";
-            }
-            if(tip == "Fetal 2D Echo")
-            {
-                week = " ( "+getWeekRange(conceptionDate, 24, savedLang).text.start+" - "+getWeekRange(conceptionDate, 24, savedLang).text.end+" )";
-            }
-            if(tip == "Growth Scan")
-            {
-                week = " ( "+getWeekRange(conceptionDate, 28, savedLang).text.start+" - "+getWeekRange(conceptionDate, 32, savedLang).text.end+" )";
-            }
-            if(tip == "Obstetric Doppler")
-            {
-                week = " ( "+getWeekRange(conceptionDate, 34, savedLang).text.start+" - "+getWeekRange(conceptionDate, 36, savedLang).text.end+" )";
-            }
-            
-            li.textContent = tip + week ;
+
+            li.textContent = tip + weekText;
             sol.appendChild(li);
         });
+
 
         sonographyTestList.appendChild(sol);
 
@@ -527,8 +538,11 @@ document.addEventListener('DOMContentLoaded', function () {
        RESET
     =============================== */
     function resetCalculator() {
+        console.log("Resetting calculator...");
         resultContainer.style.display = 'none';
         globalCurrentWeek = globalTrimester = null;
+        ['lmp-date', 'conception-date', 'ultrasound-date']
+        .forEach(id => document.getElementById(id).valueAsDate = new Date());
         lmpMethodBtn.click();
     }
 
