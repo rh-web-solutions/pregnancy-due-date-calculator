@@ -313,17 +313,42 @@ document.addEventListener('DOMContentLoaded', function () {
             "Double Marker": [11, 13.6],
             "Quadraple Marker": [15, 22.6],
         };
+        const langBloodWeeks = {
+            "hi": {
+                "Week": "सप्ताह",
+                "Weeks": "सप्ताह",
+                "to": "से"
+            },
+            "mr": {
+                "Week": "आठवडा",
+                "Weeks": "आठवडे",
+                "to": "ते"
+            },
+            "en": {
+                "Week": "week",
+                "Weeks": "weeks",
+                "to": "to"
+            }
+              
+        }
 
         bloodTests.forEach(tip => {
             const li = document.createElement('li');
             let bweekText = "";
+            let week;
             const Brange = bloodWeeks[tip];
             if (Brange) {
                 const bstart = getWeekRange(lmpDate, Brange[0], savedLang).text.start;
                 const bend = getWeekRange(lmpDate, Brange[1], savedLang).text.end;
+                if(Brange[0] === Brange[1])
+                {
+                    week =  " - " + Brange[0] + " " + langBloodWeeks[savedLang]["Week"] + " - ";
+                }else{
+                    week = " - " + Brange[0] + " " + langBloodWeeks[savedLang]["to"] + " " + Brange[1] + " " + langBloodWeeks[savedLang]["Weeks"] + " - ";
+                }
                 bweekText = `\n ( ${bstart} - ${bend} )`;
             }
-            li.innerHTML = `<i class="fa-solid fa-droplet" style="color: var(--danger); margin-right: 0.5rem;"></i> ${tip} ` + bweekText;
+            li.innerHTML = `<i class="fa-solid fa-droplet" style="color: var(--danger); margin-right: 0.5rem;"></i> ${tip} ` + week + bweekText;
             ol.appendChild(li);
         });
 
@@ -345,15 +370,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const li = document.createElement('li');
             let weekText = "";
-
+            let week;
             const range = scanWeeks[tip];
             if (range) {
                 const start = getWeekRange(lmpDate, range[0], savedLang).text.start;
                 const end = getWeekRange(lmpDate, range[1], savedLang).text.end;
+                if(range[0] === range[1])
+                {
+                    week =  " - " + range[0] + " " + langBloodWeeks[savedLang]["Week"] + " - ";
+                }else{
+                    week = " - " + range[0] + " " + langBloodWeeks[savedLang]["to"] + " " + range[1] + " " + langBloodWeeks[savedLang]["Weeks"] + " - ";
+                }
                 weekText = `\n ( ${start} - ${end} )`;
             }
 
-            li.textContent = tip + weekText;
+            li.textContent = tip + week + weekText;
             sol.appendChild(li);
         });
 
