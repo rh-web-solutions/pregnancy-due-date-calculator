@@ -16,7 +16,7 @@
     =============================== */
     const translations = {
         en: {
-            title: "Pregnancy Due Date Calculator",
+            title: "PregHealth - Complete Pregnancy Advisor",
             description: "Calculate your estimated due date and track important pregnancy milestones",
             heading: "Calculate Your Due Date",
             lmp: "Last Menstrual Period",
@@ -83,7 +83,11 @@
             },
             blood_tests: {
             first: [
-                "CBC",
+                "CBC with ESR",
+                "BT/CT",
+                "LFT",
+                "Hb Electrophoresis",
+                "Double Marker",
                 "Blood Group (Rh)",
                 "Urine-(R)",
                 "TFT",
@@ -91,20 +95,19 @@
                 "HIV",
                 "HBsAg",
                 "VDRL",
-                "TCT (if blood group is negative)"
+                "ICT (if blood group is negative)"
             ],
             second: [
                 "CBC",
                 "GTT (20th week)",
                 "Urine-(R)",
-                "Hemoglobin Electrophoresis",
-
+                "Quadraple Marker",
             ],
             third: [
                 "CBC",
                 "GTT (28th week)",
                 "Urine-(R)",
-                "TCT (if blood group is negative)",
+                "ICT (if blood group is negative)",
             ]
         },
         sonography_tests: {
@@ -117,8 +120,9 @@
                 "Fetal 2D Echo",
             ],
             third: [
-                "Growth Scan",
-                "Obstetric Doppler",
+                "Growth Scan + Obstetric Doppler",
+                "2nd Growth Scan",
+                "NST (Non Stress Test) On Doctors Advice"
             ]
         },
         immunization_tests: {
@@ -156,18 +160,18 @@
         },
         lunch_diet: {
             first: [
-                "Chapati, Bhakari (Sorghum and chickpeas), Rice, Green Vegetables (Spinach, kale, pumpkin)", "Buttermilk | Curd, Dal | Eggs" , "1 Spoon Ghee",
+                "Chapati, Bhakari (Jowar and Nachni), Rice, Green Vegetables (Spinach, Red Amaranth leaves, pumpkin)", "Buttermilk | Curd, Dal | Eggs" , "1-2 Spoon Ghee",
             ],
             second: [
-                "2 Chapati, Bhakari (Sorghum and chickpeas), Rice, Green Vegetables (Spinach, kale, pumpkin)", "Buttermilk | Curd, Mix Dal | Eggs "," 1 Spoon Ghee | Cheken | Mutton (Once in a week)" ," Rajma, Chhole",
+                "2 Chapati, Bhakari (Jowar and Nachni), Rice, Green Vegetables (Spinach, Red Amaranth leaves, pumpkin)", "Buttermilk | Curd, Mix Dal | Eggs "," 1-2 Spoon Ghee | Chicken | Mutton (Once in a week)" ," Rajma, Chhole",
             ],
             third: [
-                "Chapati, Bhakari (Sorghum and chickpeas), Rice, Dal, Sabji (Veg / Non-veg), Curd , 1 Spoon Ghee"
+                "Chapati, Bhakari (Jowar and Nachni), Rice, Dal, Sabji (Veg / Non-veg), Curd , 1-2 Spoon Ghee"
             ]
         },
         evesnacks_diet: {
             first: [
-                "Roasted Makhana, Coconut Water, Rice, Fruit Juice, Puffed Rice",
+                "Roasted Makhana, Coconut Water, Fruit Juice, Puffed Rice",
             ],
             second: [
                 "Fruits (Guava, Pomegranate, Apple and seasonable fruits)", "Coconut Water", "Carrot juice + beetroot juice",
@@ -178,10 +182,10 @@
         },
         dinner_diet: {
             first: [
-                "Chapati + Sabji, a nutritious and tasty dal made from moong dal , 1 Spoon Ghee",
+                "Chapati + Sabji, a nutritious and tasty dal made from moong dal",
             ],
             second: [
-                "Chapati | Bhakari (Sorghum and chickpeas) + Rice + Rice",
+                "Chapati | Bhakari (Jowar and Nachni) + Rice + Rice",
             ],
             third: [
                 "Chapati + Rice + Dal"
@@ -221,7 +225,7 @@
             second: [
                 "Pranayam : Anulom Vilom, Bhramari",
                 "Yoga : Baddhakonasan, Shavasan, Sukhasan, Vajrasan (After Meal)",
-                "- Lie on your left side and breathe deeply for 10 to 15 minutes 2-3 times a day."
+                "Take proper rest on left lateral side."
             ],
             third: [
                 "Pranayam : Anulom Vilom, Bhramari",
@@ -230,14 +234,16 @@
         },
         donts_excercise: {
             first: [
-                "Avoid traveling", "lifting heavy objects", "having sex", "going up and down stairs for a long time"
+                "Avoid travelling", "lifting heavy objects", "having sex", "going up and down stairs for a long time"
             ],
             second: [
-                "-",
+                "Kapalbharti",
+                "Bhastrika",
+                "Do not practice yoga if you have threatened abortion, placenta previa, severe anemia, PIH (pregnancy-induced hypertension), heart disease, a history of preterm labor, or multiple pregnancy."
             ],
             third: [
                 "Kapalbharti",
-                "Bhatrika",
+                "Bhastrika",
                 "Do not practice yoga if you have threatened abortion, placenta previa, severe anemia, PIH (pregnancy-induced hypertension), heart disease, a history of preterm labor, or multiple pregnancy."
             ]
         },
@@ -253,14 +259,14 @@
         },
 
           mr: {
-        title: "गर्भधारणेची अंतिम तारीख कॅल्क्युलेटर",
+        title: "PregHealth - पूर्ण गर्भधारण सल्लागार",
         description: "तुमच्या अंदाजे गर्भधारणेच्या अंतिम तारखेची गणना करा आणि गर्भधारणेच्या महत्त्वाच्या टप्प्यांचा मागोवा घ्या",
         heading: "तुमच्या गर्भधारणेची अंतिम तारीख मोजा",
 
         lmp: "शेवटची मासिक पाळी",
         conception: "गर्भधारणेची तारीख",
         ultrasound: "अल्ट्रासाऊंड तारीख",
-        Current_Stage_tip: "तुमच्या सध्याच्या टप्प्यासाठी टिप्स",
+        Current_Stage_tip: "सध्याच्या गर्भावस्थेनुसार सल्ले",
         Pregnancy_Milestones: "गर्भधारणेचे टप्पे",
 
         fdlmp: "शेवटच्या मासिक पाळीचा पहिला दिवस",
@@ -313,7 +319,7 @@
                 "डॉक्टरांनी सुचवल्यास जनुकीय चाचण्यांचा विचार करा",
                 "गर्भावस्थेस सुरक्षित व्यायाम करत रहा",
                 "मातृत्व रजेची योजना करा",
-                "रक्ताभिसरण सुधारण्यासाठी बाजूने झोपण्यास सुरुवात करा"
+                "रक्ताभिसण सुधारण्यासाठी एका कुशीवर झोपण्यास सुरुवात करावी."
             ],
             third: [
                 "रुग्णालयासाठी पिशवी व बर्थ प्लॅन तयार ठेवा",
@@ -325,7 +331,11 @@
         },
          blood_tests: {
             first: [
-                "CBC",
+                "CBC with ESR",
+                "BT/CT",
+                "LFT",
+                "Hb Electrophoresis",
+                "Double Marker",
                 "Blood Group (Rh)",
                 "Urine-(R)",
                 "TFT",
@@ -333,20 +343,20 @@
                 "HIV",
                 "HBsAg",
                 "VDRL",
-                "TCT (जर रक्तगट निगेटिव्ह असेल तर)"
+                "ICT (जर रक्तगट निगेटिव्ह असेल तर)"
             ],
             second: [
                 "CBC",
                 "GTT (२० वा आठवडा)",
                 "Urine-(R)",
-                "Hemoglobin Electrophoresis",
+                "Quadraple Marker"
 
             ],
             third: [
                 "CBC",
                 "GTT (२८ वा आठवडा)",
                 "Urine-(R)",
-                "TCT (जर रक्तगट निगेटिव्ह असेल तर)",
+                "ICT (जर रक्तगट निगेटिव्ह असेल तर)",
             ]
         },
         sonography_tests: {
@@ -359,8 +369,9 @@
                 "Fetal 2D Echo",
             ],
             third: [
-                "Growth Scan",
-                "Obstetric Doppler",
+                "Growth Scan + Obstetric Doppler",
+                "2nd Growth Scan",
+                "NST (Non Stress Test) डॉक्टरांच्या सल्ल्यानुसार"
             ]
         },
         immunization_tests: {
@@ -376,7 +387,7 @@
         },
         morning_diet: {
     first: [
-        "मुरमुरे (लाह्या)", "टोस्ट", "भिजवलेली काळी मनुका",
+        "मुरमुरे (लाह्या)", "टोस्ट", "भिजवलेले काळे मनुके ",
     ],
     second: [
         "१ कप दूध, ४–५ भिजवलेले बदाम, १ अक्रोड",
@@ -387,7 +398,7 @@
 },
 breakfast_diet: {
     first: [
-        "पोहे | उपमा | डाळीया | इडली | मूग चिल्ला | उकडलेली अंडी | दूध", "फळे : सफरचंद, केळी, संत्री, डाळिंब",
+        "पोहे | उपमा | दलिया | इडली | मूग चिल्ला | उकडलेली अंडी | दूध", "फळे : सफरचंद, केळी, संत्री, डाळिंब",
     ],
     second: [
         "पराठा | डोसा | इडली | अंडी | पनीर | अंकुरित धान्य (प्रथिने भरपूर)",
@@ -398,18 +409,18 @@ breakfast_diet: {
 },
 lunch_diet: {
     first: [
-        "चपाती, भाकरी (ज्वारी, बाजरी), भात, हिरव्या भाज्या (पालक, केल, भोपळा)", "ताक | दही, डाळ | अंडी", "१ चमचा तूप",
+        "चपाती, भाकरी (ज्वारी, नाचणी), भात, हिरव्या भाज्या (पालक, लाल माठ, भोपळा)", "ताक | दही, डाळ | अंडी", "1-2 चमचा तूप",
     ],
     second: [
-        "२ चपाती, भाकरी (ज्वारी, बाजरी), भात, हिरव्या भाज्या (पालक, केल, भोपळा)", "ताक | दही, मिक्स डाळ | अंडी", "१ चमचा तूप | चिकन | मटण (आठवड्यातून एकदा)"," राजमा, छोले",
+        "२ चपाती, भाकरी (ज्वारी, नाचणी), भात, हिरव्या भाज्या (पालक, लाल माठ, भोपळा)", "ताक | दही, मिक्स डाळ | अंडी", "1-2 चमचा तूप | चिकन | मटण (आठवड्यातून एकदा)"," राजमा, छोले",
     ],
     third: [
-        "चपाती, भाकरी (ज्वारी, बाजरी), भात, डाळ, भाजी (शाकाहारी / मांसाहारी), दही, १ चमचा तूप"
+        "चपाती, भाकरी (ज्वारी, नाचणी), भात, डाळ, भाजी (शाकाहारी / मांसाहारी), दही, 1-2 चमचा तूप"
     ]
 },
 evesnacks_diet: {
     first: [
-        "भाजलेले मखाने, नारळ पाणी, भात, फळांचा रस, मुरमुरे",
+        "भाजलेले मखाने, नारळ पाणी, फळांचा रस, मुरमुरे",
     ],
     second: [
         "फळे (पेरू, डाळिंब, सफरचंद व हंगामी फळे)", "नारळ पाणी", "गाजर रस + बीटरूट रस",
@@ -420,10 +431,10 @@ evesnacks_diet: {
 },
 dinner_diet: {
     first: [
-        "चपाती + भाजी", "मूग डाळीची पौष्टिक डाळ", "१ चमचा तूप",
+        "चपाती + भाजी", "मूग डाळीची पौष्टिक डाळ",
     ],
     second: [
-        "चपाती | भाकरी (ज्वारी, बाजरी) + भात",
+        "चपाती | भाकरी (ज्वारी, नाचणी) + भात",
     ],
     third: [
         "चपाती + भात + डाळ"
@@ -463,7 +474,7 @@ excercise_tips: {
     second: [
         "प्राणायाम : अनुलोम विलोम, भ्रामरी",
         "योग : बद्धकोनासन, शवासन, सुखासन, वज्रासन (जेवणानंतर)",
-        "दिवसातून २–३ वेळा १०–१५ मिनिटे डाव्या कुशीवर झोपून खोल श्वास घ्या."
+        "दुपारी डाव्या कुशीवर झोपून पुरेसी झोप घ्यावी. "
     ],
     third: [
         "प्राणायाम : अनुलोम विलोम, भ्रामरी",
@@ -475,7 +486,9 @@ donts_excercise: {
         "प्रवास टाळा", "जड वजन उचलू नका", "लैंगिक संबंध टाळा", "खूप वेळ जिने चढ-उतार करू नका"
     ],
     second: [
-        "-",
+        "कपालभाती",
+        "भस्त्रिका",
+        "गर्भपाताची शक्यता, प्लॅसेंटा प्रिव्हिया, तीव्र अ‍ॅनिमिया, गर्भावस्थेतील उच्च रक्तदाब (PIH), हृदयविकार, पूर्वी अकाली प्रसूतीचा इतिहास किंवा जुळी/अनेक गर्भधारणा असल्यास योग करू नये."
     ],
     third: [
         "कपालभाती",
@@ -497,7 +510,7 @@ donts_excercise: {
     },
 
     hi: {
-        title: "गर्भावस्था की अनुमानित प्रसव तिथि कैलकुलेटर",
+        title: "PregHealth - पूर्ण गर्भावस्था सलाहकार",
         description: "अपनी अनुमानित प्रसव तिथि की गणना करें और गर्भावस्था के महत्वपूर्ण चरणों को ट्रैक करें",
         heading: "अपनी प्रसव तिथि की गणना करें",
 
@@ -558,7 +571,7 @@ donts_excercise: {
                 "डॉक्टर की सलाह पर जेनेटिक जांच पर विचार करें",
                 "गर्भावस्था के लिए सुरक्षित व्यायाम करते रहें",
                 "मातृत्व अवकाश की योजना बनाएं",
-                "रक्त संचार बेहतर करने के लिए करवट लेकर सोएं"
+                "रक्त संचार बेहतर करने के लिए करवट लेकर सोएं",
             ],
             third: [
                 "अस्पताल बैग और बर्थ प्लान तैयार करें",
@@ -570,7 +583,11 @@ donts_excercise: {
         },
         blood_tests: {
             first: [
-                "CBC",
+                "CBC with ESR",
+                "BT/CT",
+                "LFT",
+                "Hb Electrophoresis",
+                "Double Marker",
                 "Blood Group (Rh)",
                 "Urine-(R)",
                 "TFT",
@@ -578,20 +595,20 @@ donts_excercise: {
                 "HIV",
                 "HBsAg",
                 "VDRL",
-                "TCT (यदि रक्त समूह नेगेटिव है)"
+                "ICT (यदि रक्त समूह नेगेटिव है)"
             ],
             second: [
                 "CBC",
                 "GTT (20वां सप्ताह)",
                 "Urine-(R)",
-                "Hemoglobin Electrophoresis",
+                "Quadraple Marker"
 
             ],
             third: [
                 "CBC",
                 "GTT (28 वां सप्ताह)",
                 "Urine-(R)",
-                "TCT (यदि रक्त समूह नेगेटिव है)",
+                "ICT (यदि रक्त समूह नेगेटिव है)",
             ]
         },
         sonography_tests: {
@@ -604,8 +621,9 @@ donts_excercise: {
                 "Fetal 2D Echo",
             ],
             third: [
-                "Growth Scan",
-                "Obstetric Doppler",
+                "Growth Scan + Obstetric Doppler",
+                "2nd Growth Scan",
+                "NST (Non Stress Test) अपने डॉक्टर की सलाह के अनुसार"
             ]
         },
         immunization_tests: {
@@ -643,13 +661,13 @@ donts_excercise: {
         },
         lunch_diet: {
             first: [
-                "चपाती, भाकरी (ज्वार, बाजरा), चावल, हरी सब्जियां (पालक, केल, कद्दू)", "छाछ | दही, दाल | अंडे", "1 चम्मच घी",
+                "चपाती, भाकरी (ज्वार, बाजरा), चावल, हरी सब्जियां (पालक, लाल माठ, कद्दू)", "छाछ | दही, दाल | अंडे", "1-2 चम्मच घी",
             ],
             second: [
-                "2 चपाती, भाकरी (ज्वार, बाजरा), चावल, हरी सब्जियां (पालक, केल, कद्दू)"," छाछ | दही", "मिक्स दाल | अंडे", "1 चम्मच घी | चिकन | मटन (हफ्ते में एक बार)", "राजमा, छोले",
+                "2 चपाती, भाकरी (ज्वार, बाजरा), चावल, हरी सब्जियां (पालक, लाल माठ, कद्दू)"," छाछ | दही", "मिक्स दाल | अंडे", "1-2 चम्मच घी | चिकन | मटन (हफ्ते में एक बार)", "राजमा, छोले",
             ],
             third: [
-                "चपाती, भाकरी (ज्वार, बाजरा), चावल, दाल, सब्जी (शाकाहारी / मांसाहारी), दही, 1 चम्मच घी"
+                "चपाती, भाकरी (ज्वार, बाजरा), चावल, दाल, सब्जी (शाकाहारी / मांसाहारी), दही, 1-2 चम्मच घी"
             ]
         },
         evesnacks_diet: {
@@ -665,7 +683,7 @@ donts_excercise: {
         },
         dinner_diet: {
             first: [
-                "चपाती + सब्जी", "मूंग दाल से बनी पौष्टिक दाल", "1 चम्मच घी",
+                "चपाती + सब्जी", "मूंग दाल से बनी पौष्टिक दाल",
             ],
             second: [
                 "चपाती | भाकरी (ज्वार, बाजरा) + चावल",
@@ -720,7 +738,9 @@ donts_excercise: {
                 "यात्रा से बचें", "भारी वजन न उठाएं", "संभोग से बचें", "लंबे समय तक सीढ़ियां न चढ़ें"
             ],
             second: [
-                "-",
+                "कपालभाति",
+                "भस्त्रिका",
+                "यदि गर्भपात का खतरा, प्लेसेंटा प्रीविया, गंभीर एनीमिया, गर्भावस्था में उच्च रक्तचाप (PIH), हृदय रोग, समय से पहले प्रसव का इतिहास या जुड़वां/एक से अधिक गर्भ हो तो योग न करें।"
             ],
             third: [
                 "कपालभाति",
@@ -742,27 +762,71 @@ donts_excercise: {
     };
 
 
-    function getWeekRange(conceptionDate, weekNumber, savedLang = "en") {
+// function getWeekRange(lmp, weekNumber, savedLang = "en") {
         
-    if (!conceptionDate) return null;
+//     if (!lmp) return null;
 
-    const startOffset = (weekNumber - 1) * 7;
+//     const startOffset = (weekNumber - 1) * 7;
+    
 
-    const start = new Date(conceptionDate);
-    start.setDate(start.getDate() + startOffset);
+//     const start = new Date(lmp);
+//     start.setDate(start.getDate() + startOffset);
 
-    const end = new Date(start);
-    end.setDate(start.getDate() + 6);
+//     const end = new Date(start);
+//     end.setDate(start.getDate() + 6);
+
+//     return {
+//         weekNumber,
+//         startDate: start,
+//         endDate: end,
+//         text: {
+//             start: ` ${formatDate(start, savedLang)}`,
+//             end: ` ${formatDate(end, savedLang)}`
+//         }
+//     };
+// }
+
+function getWeekRange(lmp, weekNumber, savedLang = "en") {
+    if (!lmp || weekNumber == null) return null;
+
+    const week = Math.floor(weekNumber);     // 1 from 1.6
+    const extraDays = Math.round((weekNumber - week) * 10); // 6 from 1.6
+
+    // Start date = LMP
+    const start = new Date(lmp);
+
+    // End of the given week
+    const end = new Date(lmp);
+    end.setDate(end.getDate() + (week * 7 - 1));
+
+    // Add extra days
+    end.setDate(end.getDate() + extraDays);
 
     return {
         weekNumber,
         startDate: start,
         endDate: end,
         text: {
-            start: ` ${formatDate(start, savedLang)}`,
-            end: ` ${formatDate(end, savedLang)}`
+            start: formatDate(start, savedLang),
+            end: formatDate(end, savedLang)
         }
     };
 }
 
+function showWelcome() {
+    document.querySelector('.container').style.display = 'none';
+    document.querySelector('.welcome').style.display = 'block';
+}
+
+function showContainer() {
+    document.querySelector('.welcome').style.display = 'none';
+    document.querySelector('.container').style.display = 'block';
+}
+
+if(false)
+{
+showWelcome()
+}else{
+showContainer()
+}
     
