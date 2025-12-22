@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }else{
                     week = " - " + Brange[0] + " " + langBloodWeeks[savedLang]["to"] + " " + Brange[1] + " " + langBloodWeeks[savedLang]["Weeks"] + " - ";
                 }
-                bweekText = `\n ( ${bstart} - ${bend} )`;
+                bweekText = `\n ( ${bstart}  ${+ langBloodWeeks[savedLang]["to"] +}  ${bend} )`;
             }
             li.innerHTML = `<i class="fa-solid fa-droplet" style="color: var(--danger); margin-right: 0.5rem;"></i> ${tip} ` + week + bweekText;
             ol.appendChild(li);
@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }else{
                     week = " - " + range[0] + " " + langBloodWeeks[savedLang]["to"] + " " + range[1] + " " + langBloodWeeks[savedLang]["Weeks"] + " - ";
                 }
-                weekText = `\n ( ${start} - ${end} )`;
+                weekText = `\n ( ${start}  ${+ langBloodWeeks[savedLang]["to"] +}  ${end} )`;
             }
 
             li.textContent = tip + week + weekText;
@@ -587,5 +587,6 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
 });
+
 
 
