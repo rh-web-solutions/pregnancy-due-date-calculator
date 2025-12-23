@@ -161,7 +161,7 @@
         },
         lunch_diet: {
             first: [
-                "Chapati, Bhakari (Jowar and Nachni), Rice, Green Vegetables (Spinach, Red Amaranth leaves, pumpkin)", "Buttermilk | Curd, Dal | Eggs" , "1-2 Spoon Ghee",
+                "Chapati, Bhakari (Jowar and Nachni), Rice, Green Vegetables (Spinach, Red Amaranth leaves, pumpkin)", "Buttermilk | Curd", "Dal | Eggs" , "1-2 Spoon Ghee",
             ],
             second: [
                 "2 Chapati, Bhakari (Jowar and Nachni), Rice, Green Vegetables (Spinach, Red Amaranth leaves, pumpkin)", "Buttermilk | Curd", "Mix Dal | Eggs "," 1-2 Spoon Ghee | Chicken | Mutton (Once in a week)" ," Rajma, Chhole",
@@ -411,7 +411,7 @@ breakfast_diet: {
 },
 lunch_diet: {
     first: [
-        "चपाती, भाकरी (ज्वारी, नाचणी), भात, हिरव्या भाज्या (पालक, लाल माठ, भोपळा)", "ताक | दही, वरण | अंडी", "1-2 चमचा तूप",
+        "चपाती, भाकरी (ज्वारी, नाचणी), भात, हिरव्या भाज्या (पालक, लाल माठ, भोपळा)", "ताक | दही", "वरण | अंडी", "1-2 चमचा तूप",
     ],
     second: [
         "२ चपाती, भाकरी (ज्वारी, नाचणी), भात, हिरव्या भाज्या (पालक, लाल माठ, भोपळा)", "ताक | दही", "मिक्स वरण | अंडी", "1-2 चमचा तूप | चिकन | मटण (आठवड्यातून एकदा)"," राजमा, छोले",
@@ -664,7 +664,7 @@ donts_excercise: {
         },
         lunch_diet: {
             first: [
-                "चपाती, भाकरी (ज्वार, बाजरा), चावल, हरी सब्जियां (पालक, लाल माठ, कद्दू)", "छाछ | दही, दाल | अंडे", "1-2 चम्मच घी",
+                "चपाती, भाकरी (ज्वार, बाजरा), चावल, हरी सब्जियां (पालक, लाल माठ, कद्दू)", "छाछ | दही", "दाल | अंडे", "1-2 चम्मच घी",
             ],
             second: [
                 "2 चपाती, भाकरी (ज्वार, बाजरा), चावल, हरी सब्जियां (पालक, लाल माठ, कद्दू)"," छाछ | दही", "मिक्स दाल | अंडे", "1-2 चम्मच घी | चिकन | मटन (हफ्ते में एक बार)", "राजमा, छोले",
