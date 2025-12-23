@@ -19,82 +19,81 @@
     </select>
 </div>
 <div class="welcome text-center">
-    <h1>Hello. We’re sorry for the inconvenience. Your access to this app has been restricted, as it is no longer in production.</h1>
+    <h1 data-lang="welcome"></h1>
 </div>
 <div class="container">
         <header>
-            <h1><i class="fas fa-baby"></i> <span data-lang="title">Pregnancy Due Date Calculator</span></h1>
-            <p class="subtitle" data-lang="description">Calculate your estimated due date and track important pregnancy milestones</p>
+            <h1><i class="fas fa-baby"></i> <span data-lang="title"></span></h1>
+            <p class="subtitle" data-lang="description"></p>
         </header>
 
         <div class="card">
-            <h2 class="card-title"><i class="fas fa-calculator"></i> <span data-lang="heading">Calculate Your Due Date</span> </h2>
+            <h2 class="card-title"><i class="fas fa-calculator"></i> <span data-lang="heading"></span> </h2>
             
             <div class="method-toggle flex-nowrap overflow-auto d-none">
-                <button class="active" id="lmpMethodBtn" data-lang="lmp">Last Menstrual Period</button>
-                <button class="d-none" id="conceptionMethodBtn" data-lang="conception">Conception Date</button>
-                <button class="d-none" id="ultrasoundMethodBtn" data-lang="ultrasound">Ultrasound Date</button>
+                <button class="active" id="lmpMethodBtn" data-lang="lmp"></button>
+                <button class="d-none" id="conceptionMethodBtn" data-lang="conception"></button>
+                <button class="d-none" id="ultrasoundMethodBtn" data-lang="ultrasound"></button>
             </div>
             
             <div id="lmpMethod" class="calculation-method">
                 <div class="form-group">
-                    <label for="lmp-date" data-lang="fdlmp">First day of last menstrual period</label>
+                    <label for="lmp-date" data-lang="fdlmp"></label>
                     <input type="date" id="lmp-date" required>
                 </div>
                 <div class="form-group">
-                    <label for="cycle-length" data-lang="acl">Average cycle length (days)</label>
+                    <label for="cycle-length" data-lang="acl"></label>
                     <select id="cycle-length">
-                        <option value="21">21 <span data-lang="days">days</span></option>
-                        <option value="22">22 <span data-lang="days">days</span></option>
-                        <option value="23">23 <span data-lang="days">days</span></option>
-                        <option value="24">24 <span data-lang="days">days</span></option>
-                        <option value="25">25 <span data-lang="days">days</span></option>
-                        <option value="26">26 <span data-lang="days">days</span></option>
-                        <option value="27">27 <span data-lang="days">days</span></option>
-                        <option value="28" selected>28 <span data-lang="days">days</span></option>
-                        <option value="29">29 <span data-lang="days">days</span></option>
-                        <option value="30">30 <span data-lang="days">days</span></option>
-                        <option value="31">31 <span data-lang="days">days</span></option>
-                        <option value="32">32 <span data-lang="days">days</span></option>
-                        <option value="33">33 <span data-lang="days">days</span></option>
-                        <option value="34">34 <span data-lang="days">days</span></option>
-                        <option value="35">35 <span data-lang="days">days</span></option>
+                        <option value="21">21 <span data-lang="days"></span></option>
+                        <option value="22">22 <span data-lang="days"></span></option>
+                        <option value="23">23 <span data-lang="days"></span></option>
+                        <option value="24">24 <span data-lang="days"></span></option>
+                        <option value="25">25 <span data-lang="days"></span></option>
+                        <option value="26">26 <span data-lang="days"></span></option>
+                        <option value="27">27 <span data-lang="days"></span></option>
+                        <option value="28" selected>28 <span data-lang="days"></span></option>
+                        <option value="29">29 <span data-lang="days"></span></option>
+                        <option value="30">30 <span data-lang="days"></span></option>
+                        <option value="31">31 <span data-lang="days"></span></option>
+                        <option value="32">32 <span data-lang="days"></span></option>
+                        <option value="33">33 <span data-lang="days"></span></option>
+                        <option value="34">34 <span data-lang="days"></span></option>
+                        <option value="35">35 <span data-lang="days"></span></option>
                     </select>
                 </div>
             </div>
             
             <div id="conceptionMethod" class="calculation-method hidden">
                 <div class="form-group">
-                    <label for="conception-date" data-lang="conceptionLabel">Conception date (estimated)</label>
+                    <label for="conception-date" data-lang="conceptionLabel"></label>
                     <input type="date" id="conception-date">
                 </div>
                 <p class="tip-content" style="margin-top: -0.5rem; margin-bottom: 1rem; font-size: 0.9rem;">
                     <i class="fas fa-info-circle" style="color: var(--info);"></i><span data-lang="conceptionTip">
-                    Conception typically occurs about 11-21 days after the first day of your last period.
                 </span>
                 </p>
             </div>
             
             <div id="ultrasoundMethod" class="calculation-method hidden">
                 <div class="form-group">
-                    <label for="ultrasound-date" data-lang="ultrasoundDate">Ultrasound date</label>
+                    <label for="ultrasound-date" data-lang="ultrasoundDate"></label>
                     <input type="date" id="ultrasound-date">
                 </div>
                 <div class="form-group">
-                    <label for="ultrasound-weeks" data-lang="ultrasoundWeeks">Weeks at ultrasound</label>
+                    <label for="ultrasound-weeks" data-lang="ultrasoundWeeks"></label>
                     <input type="number" id="ultrasound-weeks" min="6" max="40" placeholder="e.g., 8">
                 </div>
                 <div class="form-group">
-                    <label for="ultrasound-days" data-lang="ultrasoundDays">Additional days</label>
+                    <label for="ultrasound-days" data-lang="ultrasoundDays"></label>
                     <input type="number" id="ultrasound-days" min="0" max="6" placeholder="e.g., 3">
                 </div>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between align-items-center mt-4">
+            
+                    <button id="calculate-btn" class="btn"><i class="fas fa-calculator"></i> <span data-lang="buttonCalculate"></span></button>
                 
-                    <button id="calculate-btn" class="btn"><i class="fas fa-calculator"></i> <span data-lang="buttonCalculate"> Calculate Due Date</span></button>
-                
-                    <button id="reset-btn" class="btn btn-secondary" style="margin-left: 1rem;"><i class="fas fa-redo"></i> </button>
-                
+                    <button id="reset-btn" class="btn btn-secondary" style="margin-left: 1rem;"><i class="fas fa-redo"></i></button>
+               
             </div>
             
             
@@ -102,8 +101,8 @@
 
         <div id="result-container" class="result-container">
             <div class="result-card">
-                <h3 class="result-title"><i class="fas fa-calendar-check"></i> <span data-lang="epdd">Estimated Due Date</span></h3>
-                <div class="result-value" id="due-date">May 15, 2023</div>
+                <h3 class="result-title"><i class="fas fa-calendar-check"></i> <span data-lang="epdd"></span></h3>
+                <div class="result-value" id="due-date"></div>
                 
                 <div class="pregnancy-progress">
                     <div class="progress-container">
@@ -122,30 +121,30 @@
                 
                 <div class="result-details">
                     <div class="detail-item">
-                        <div class="detail-label" data-lang="Current_trimester">Current trimester</div>
-                        <div class="detail-value" id="trimester">2nd</div>
+                        <div class="detail-label" data-lang="Current_trimester"></div>
+                        <div class="detail-value" id="trimester"></div>
                     </div>
                     <div class="detail-item">
-                        <div class="detail-label" data-lang="Days_remaining">Days remaining</div>
-                        <div class="detail-value" id="days-remaining">140</div>
+                        <div class="detail-label" data-lang="Days_remaining"></div>
+                        <div class="detail-value" id="days-remaining"></div>
                     </div>
                     <div class="detail-item">
-                        <div class="detail-label" data-lang="Conception_date">Conception date</div>
-                        <div class="detail-value" id="conception-date-result">Aug 30, 2022</div>
+                        <div class="detail-label" data-lang="Conception_date"></div>
+                        <div class="detail-value" id="conception-date-result"></div>
                     </div>
                     <div class="detail-item">
-                        <div class="detail-label" data-lang="Current_fetal_age">Current fetal age</div>
+                        <div class="detail-label" data-lang="Current_fetal_age"></div>
                         <div class="detail-value" >
                             <span id="fetal-age"></span><span data-lang="week"></span>
                             <span id="fetal-age-days"></span><span data-lang="days"></span>
                         </div>
                     </div>
                     <div class="detail-item">
-                        <div class="detail-label" data-lang="Current_Week">Current Week</div>
+                        <div class="detail-label" data-lang="Current_Week"></div>
                         <div class="detail-value"><span id="current-running-week"></span><span data-lang="week"></span></div>
                     </div>
                     <div class="detail-item">
-                        <div class="detail-label" data-lang="Current_Month">Current Month</div>
+                        <div class="detail-label" data-lang="Current_Month"></div>
                         <div class="detail-value"><span id="current-month"></span><span data-lang="month"></span></div>
                     </div>
                 </div>
@@ -200,7 +199,7 @@
 
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" >
                                 <i class="fa-solid fa-droplet" style="color: var(--danger); margin-right: 0.5rem;"></i>
-                                <span data-lang="blood_test"> Blood Test</span>
+                                <span data-lang="blood_test"></span>
                             </button>
                             </h2>
                             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
@@ -214,7 +213,7 @@
                             <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" >
                                 <i class="fa-solid fa-stethoscope"></i>&nbsp;&nbsp;
-                                <span data-lang="sonography">Sonography</span>
+                                <span data-lang="sonography"></span>
                             </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -226,7 +225,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" >
-                                <i class="fa-solid fa-syringe" style="color: var(--info); margin-right: 0.5rem;"></i> <span data-lang="immunization">Immunization</span>
+                                <i class="fa-solid fa-syringe" style="color: var(--info); margin-right: 0.5rem;"></i> <span data-lang="immunization"></span>
                             </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -310,12 +309,8 @@
             </div>
         </div>
        <br>
-       <p data-lang="footer1">
-        This calculator provides an estimate only and is not a substitute for professional medical advice.
-        </p>
-        <p data-lang="footer2">
-            Always consult with your healthcare provider about your pregnancy.
-        </p>
+       <p data-lang="footer1"></p>
+        <p data-lang="footer2"></p>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
@@ -323,8 +318,6 @@
 <script src="./script.js"></script>
    
 </html>
-
-
 
 
 
