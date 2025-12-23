@@ -16,6 +16,7 @@
     =============================== */
     const translations = {
         en: {
+            welcome: "Hello. We apologize for the inconvenience. Your access to this app has been restricted.",
             title: "PregHealth - Complete Pregnancy Advisor",
             description: "Calculate your estimated due date and track important pregnancy milestones",
             heading: "Calculate Your Due Date",
@@ -163,7 +164,7 @@
                 "Chapati, Bhakari (Jowar and Nachni), Rice, Green Vegetables (Spinach, Red Amaranth leaves, pumpkin)", "Buttermilk | Curd, Dal | Eggs" , "1-2 Spoon Ghee",
             ],
             second: [
-                "2 Chapati, Bhakari (Jowar and Nachni), Rice, Green Vegetables (Spinach, Red Amaranth leaves, pumpkin)", "Buttermilk | Curd, Mix Dal | Eggs "," 1-2 Spoon Ghee | Chicken | Mutton (Once in a week)" ," Rajma, Chhole",
+                "2 Chapati, Bhakari (Jowar and Nachni), Rice, Green Vegetables (Spinach, Red Amaranth leaves, pumpkin)", "Buttermilk | Curd", "Mix Dal | Eggs "," 1-2 Spoon Ghee | Chicken | Mutton (Once in a week)" ," Rajma, Chhole",
             ],
             third: [
                 "Chapati, Bhakari (Jowar and Nachni), Rice, Dal, Sabji (Veg / Non-veg), Curd , 1-2 Spoon Ghee"
@@ -259,6 +260,7 @@
         },
 
           mr: {
+            welcome: "नमस्कार। असुविधा बद्दल आम्हाला खेद आहे. या अॅपमध्ये तुमची प्रवेश मर्यादित केली गेली आहे.",
         title: "PregHealth - पूर्ण गर्भधारण सल्लागार",
         description: "तुमच्या अंदाजे गर्भधारणेच्या अंतिम तारखेची गणना करा आणि गर्भधारणेच्या महत्त्वाच्या टप्प्यांचा मागोवा घ्या",
         heading: "तुमच्या गर्भधारणेची अंतिम तारीख मोजा",
@@ -409,13 +411,13 @@ breakfast_diet: {
 },
 lunch_diet: {
     first: [
-        "चपाती, भाकरी (ज्वारी, नाचणी), भात, हिरव्या भाज्या (पालक, लाल माठ, भोपळा)", "ताक | दही, डाळ | अंडी", "1-2 चमचा तूप",
+        "चपाती, भाकरी (ज्वारी, नाचणी), भात, हिरव्या भाज्या (पालक, लाल माठ, भोपळा)", "ताक | दही, वरण | अंडी", "1-2 चमचा तूप",
     ],
     second: [
-        "२ चपाती, भाकरी (ज्वारी, नाचणी), भात, हिरव्या भाज्या (पालक, लाल माठ, भोपळा)", "ताक | दही, मिक्स डाळ | अंडी", "1-2 चमचा तूप | चिकन | मटण (आठवड्यातून एकदा)"," राजमा, छोले",
+        "२ चपाती, भाकरी (ज्वारी, नाचणी), भात, हिरव्या भाज्या (पालक, लाल माठ, भोपळा)", "ताक | दही", "मिक्स वरण | अंडी", "1-2 चमचा तूप | चिकन | मटण (आठवड्यातून एकदा)"," राजमा, छोले",
     ],
     third: [
-        "चपाती, भाकरी (ज्वारी, नाचणी), भात, डाळ, भाजी (शाकाहारी / मांसाहारी), दही, 1-2 चमचा तूप"
+        "चपाती, भाकरी (ज्वारी, नाचणी), भात, वरण, भाजी (शाकाहारी / मांसाहारी), दही, 1-2 चमचा तूप"
     ]
 },
 evesnacks_diet: {
@@ -431,13 +433,13 @@ evesnacks_diet: {
 },
 dinner_diet: {
     first: [
-        "चपाती + भाजी", "मूग डाळीची पौष्टिक डाळ",
+        "चपाती + भाजी", "मूग डाळीची पौष्टिक वरण",
     ],
     second: [
         "चपाती | भाकरी (ज्वारी, नाचणी) + भात",
     ],
     third: [
-        "चपाती + भात + डाळ"
+        "चपाती + भात + वरण"
     ]
 },
 bedtime_diet: {
@@ -510,6 +512,7 @@ donts_excercise: {
     },
 
     hi: {
+        welcome: "नमस्कार। असुविधा के लिए हमें खेद है। इस ऐप तक आपकी पहुंच प्रतिबंधित कर दी गई है।",
         title: "PregHealth - पूर्ण गर्भावस्था सलाहकार",
         description: "अपनी अनुमानित प्रसव तिथि की गणना करें और गर्भावस्था के महत्वपूर्ण चरणों को ट्रैक करें",
         heading: "अपनी प्रसव तिथि की गणना करें",
@@ -806,4 +809,3 @@ showWelcome()
 showContainer()
 }
     
-
