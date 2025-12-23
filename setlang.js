@@ -802,10 +802,11 @@ function showContainer() {
     document.querySelector('.container').style.display = 'block';
 }
 
-if(false)
+if(true)
 {
 showWelcome()
 }else{
 showContainer()
 }
     
+
